@@ -1,7 +1,8 @@
 export default {
-    primary: '#004AAD',
+    primary: '#104BA2',
+    secondary: '#5CE1E6',
     white: 'white',
-    textTitle: '#333333',
+    gray: '#999999',
     groupText: '#4F4F4F',
     subTitle: '#828282',
     textHolder: '#BDBDBD',

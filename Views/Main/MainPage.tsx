@@ -1,43 +1,39 @@
-import { Image, StyleSheet,  Text,  View } from 'react-native';
+import { Image, ScrollView, StyleSheet,  Text,  TouchableOpacity,  View } from 'react-native';
 import MainColors from '../../constants/MainColors';
-import MainModal from './MainModal';
-
+import Login from './Login';
 const MainPage = () => {
   
   return (
-    <View style={styles.container}>
+    <ScrollView style={{width: '100%'}}>
         <View style={styles.imageContainer}>
             <Image
             style={{resizeMode: 'contain', width: '80%'}}
-            source={require("../../assets/stockrain-logo.png")}
-            />
+            source={require("../../assets/stockrain-logo.png")} />
         </View>
-        <Text style={styles.registerText}>Si ya tienes cuenta, inicia sesión, si no, registrate!</Text>
-        <MainModal/>
-    </View>
+        <Login/>
+        <View style={styles.registerContainer}>
+          <Text style={{fontSize: 16}}>Si no tienes cuenta puedes</Text>
+          <TouchableOpacity><Text style={{color: MainColors.primary, fontWeight: 'bold', fontSize: 16}}> Registrarte Aquí!</Text></TouchableOpacity>
+        </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center'
-   },
    imageContainer: {
     width: '100%',
-    height: '40%',
+    height: 300,
+    paddingBottom: 50,
     alignItems: 'center',
     justifyContent: 'center'
    },
-   registerText: {
-    height: '10%',
-    width: '80%',
-    fontStyle: 'italic',
-    textAlign: 'center',
-    fontSize: 16,
-    color: MainColors.subTitle
-   }
+   registerContainer: {
+    flex: 1,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  }
 });
 
 export default MainPage;
