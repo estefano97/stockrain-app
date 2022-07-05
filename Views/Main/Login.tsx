@@ -1,42 +1,57 @@
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { View, Text, TextInput, StyleSheet, Touchable, TouchableOpacity } from 'react-native'
-import MyInput from '../../components/MyInput';
-import MainColors from '../../constants/MainColors';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import MainColors from "../../constants/MainColors";
+import LoginForm from "./LoginForm";
 
-const Login = () => {
-    return (
-        <View style={styles.container}>
-            <View style={styles.formContainer}>
-                <MyInput type="email" iconSelect={faEnvelope} beforeText="Ingrese su email" />
-                <MyInput type="password" iconSelect={faLock} beforeText="Ingrese su contraseña" />
-            </View>
-            <Text style={{ width: '80%', textAlign: 'right', marginTop: 10, color: MainColors.primary, fontWeight: 'bold' }}>Olvido su contraseña?</Text>
-            <TouchableOpacity style={styles.submitStyle}>
-                <Text style={{ color: MainColors.white, textAlign: 'center', fontSize: 16 }}>LOGIN</Text>
-            </TouchableOpacity>
-        </View>
-    )
+interface loginProps {
+  changePage: (arg0: string) => void;
 }
 
+const Login = (props: loginProps) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image
+          style={{ resizeMode: "contain", width: "80%" }}
+          source={require("../../assets/stockrain-logo.png")}
+        />
+      </View>
+      <LoginForm/>
+      <View style={styles.registerContainer}>
+        <Text style={{ fontSize: 16 }}>Si no tienes cuenta puedes</Text>
+        <TouchableOpacity onPress={() => props.changePage("register")}>
+          <Text
+            style={{
+              color: MainColors.primary,
+              fontWeight: "bold",
+              fontSize: 16,
+            }}> Registrarte Aquí!</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: 275,
-        alignItems: 'center'
-    },
-    formContainer: {
-        width: '80%',
-        height: 130,
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    },
-    submitStyle: {
-        backgroundColor: MainColors.primary,
-        width: '80%',
-        paddingVertical: 15,
-        marginTop: 40,
-        borderRadius: 7
-    }
-})
+  container: {
+    width: "100%",
+    height: 650,
+    alignItems: "center",
+  },
+  imageContainer: {
+    width: "100%",
+    height: 300,
+    paddingBottom: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  registerContainer: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    marginTop: 35,
+  },
+});
 
 export default Login;
