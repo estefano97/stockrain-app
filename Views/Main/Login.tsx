@@ -4,6 +4,7 @@ import LoginForm from "./LoginForm";
 
 interface loginProps {
   changePage: (arg0: string) => void;
+  setLogin: (arg0: boolean) => void;
 }
 
 const Login = (props: loginProps) => {
@@ -15,7 +16,7 @@ const Login = (props: loginProps) => {
           source={require("../../assets/stockrain-logo.png")}
         />
       </View>
-      <LoginForm/>
+      <LoginForm setLogin={(value: boolean) => props.setLogin(value)}/>
       <View style={styles.registerContainer}>
         <Text style={{ fontSize: 16 }}>Si no tienes cuenta puedes</Text>
         <TouchableOpacity onPress={() => props.changePage("register")}>

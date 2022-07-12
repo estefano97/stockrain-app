@@ -4,14 +4,19 @@ import MyInput from "../../components/MyInput";
 import MainColors from "../../constants/MainColors";
 import { Login } from "../../Apis/IAuth";
 import { useState } from "react";
-import { loginUser } from "../../Apis/AuthApi";
+import { fakeLogin, loginUser } from "../../Apis/AuthApi";
 
-const LoginForm = () => {
+interface LoginFormProps {
+  setLogin: (arg: boolean) => void;
+}
+
+const LoginForm = (props: LoginFormProps) => {
 
   const [userInfo, setUserInfo] = useState<Login>({email: '', pass: ''});
 
   const handleLogin = () => {
-    loginUser(userInfo);
+    //loginUser(userInfo);
+    props.setLogin(false);
   }
   
   return (

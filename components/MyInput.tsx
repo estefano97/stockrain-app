@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         padding: 12,
     },
     inputStyle: {
-        width: '100%',
+        width: '85%',
         fontSize: 16,
         marginLeft: 15
     }

@@ -5,7 +5,7 @@ import MainColors from '../../constants/MainColors';
 
 const RegisterForm = () => {
   return (
-    <>
+    <View style={{alignItems: 'center'}}>
       <View style={styles.titleContainer}>
         <Text style={{fontSize: 36, fontWeight: 'bold', color: MainColors.primary}}>Crear Una Cuenta</Text>
         <Text style={{color: MainColors.gray}}>Llena el formulario para poder registrarte</Text>
@@ -44,13 +44,13 @@ const RegisterForm = () => {
           CREAR CUENTA
         </Text>
       </TouchableOpacity>
-    </>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({ 
   titleContainer: {
-    paddingTop: 10,
+    paddingTop: 15,
     paddingBottom: 40,
     alignItems: 'center'
   },
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     width: "80%",
-    height: 350,
+    height: 400,
     alignItems: "center",
     justifyContent: "space-between"
   }

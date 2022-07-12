@@ -1,6 +1,6 @@
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import MainColors from "../../constants/MainColors";
 import RegisterForm from "./RegisterForm";
 
@@ -10,7 +10,7 @@ interface registerProps {
 
 const Register = (props: registerProps) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.arrowContainer}>
         <TouchableOpacity onPress={() => props.changePage("login")} style={{ marginLeft: 15}}>
         <FontAwesomeIcon style={{ color: MainColors.primary}} size={30} icon={faArrowLeftLong}  />
@@ -18,17 +18,15 @@ const Register = (props: registerProps) => {
       </View>
       <RegisterForm/>
       <View style={styles.termsContainer}>
-        <Text style={{ color: MainColors.gray, fontSize: 14, textAlign: 'center' }}>Al crear una cuenta aceptas nuestros <Text style={{fontWeight: 'bold', color: MainColors.primary}}>terminos y condiciones.</Text></Text>
+        <Text style={{ color: MainColors.gray, fontSize: 14, textAlign: 'center', marginTop: 20 }}>Al crear una cuenta aceptas nuestros <Text style={{fontWeight: 'bold', color: MainColors.primary}}>terminos y condiciones.</Text></Text>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: 670,
-    alignItems: "center",
+    width: "100%"
   },
   arrowContainer: {
     width: '100%',
