@@ -3,15 +3,22 @@ import MainColors from '../constants/MainColors'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
+interface propsMyInput {
+  beforeText: string | undefined,
+  iconSelect: IconProp | undefined,
+  type: string,
+  value: string,
+  onChange: (value: string) => void
+}
 
-const MyInput = (props: { beforeText: string | undefined, iconSelect: IconProp | undefined, type: string }) => {
+const  MyInput = (props: propsMyInput) => {
   return (
       <View style={styles.inputContainer}>
         {props.iconSelect 
         ? <FontAwesomeIcon size={24} color={MainColors.secondary} icon={props.iconSelect} /> : null}
         {props.type === "password"
-        ? <TextInput secureTextEntry={true} placeholder={props.beforeText} style={styles.inputStyle} />
-        : <TextInput placeholder={props.beforeText} style={styles.inputStyle} />}
+        ? <TextInput onChangeText={props.onChange} secureTextEntry={true} placeholder={props.beforeText} style={styles.inputStyle} />
+        : <TextInput onChangeText={props.onChange} placeholder={props.beforeText} style={styles.inputStyle} />}
     </View>
   )
 }
